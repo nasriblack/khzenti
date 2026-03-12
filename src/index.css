@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+/* Import fonts with Arabic support */
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap');
+
+@layer base {
+  * {
+    font-family: 'Cairo', 'DM Sans', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6, .font-heading {
+    font-family: 'Cairo', 'Bricolage Grotesque', 'DM Sans', system-ui, sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+
+  html[dir="rtl"] {
+    direction: rtl;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  input::placeholder {
+    font-family: 'Cairo', 'DM Sans', system-ui, sans-serif;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #fef3c7;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #f59e0b, #ec4899);
+    border-radius: 5px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, #d97706, #db2777);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(251, 191, 36, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(251, 191, 36, 0.5); }
+}
+
+@utility animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@utility animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
