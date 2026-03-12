@@ -2,7 +2,6 @@ import { useState, useRef } from "react";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import {
   Sparkles,
-  Calendar,
   Heart,
   ArrowRight,
   Check,
