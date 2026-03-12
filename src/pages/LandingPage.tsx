@@ -9,6 +9,8 @@ import {
   Sun,
   Moon,
 } from "lucide-react";
+import { faqs } from "../data";
+import NavComponent from "../components/NavComponent";
 
 export default function KhzantiLanding() {
   const [email, setEmail] = useState("");
@@ -54,33 +56,6 @@ export default function KhzantiLanding() {
     );
   };
 
-  const faqs = [
-    {
-      q: "شنوة خزانتي؟",
-      a: "خزانتي هي تطبيق يساعدك باش تقرر شنوة تلبس بإستخدام ملابسك إلي عندك. مانزيدوش نقلقوك بالإشهارات ولّا إقتراحات شراء. الهدف متاعنا هو مساعدتك باش تستغل ملابسك الموجودة بأحسن طريقة.",
-    },
-    {
-      q: "كيفاش يخدم التطبيق؟",
-      a: "التطبيق يستخدم الذكاء الإصطناعي باش يقترح عليك ألبسة مناسبة حسب الطقس، المناسبة، وستايل إلي تحبه. كل صباح، التطبيق يعطيك إقتراحات جاهزة مع شرح ليه هاذي الألبسة تناسبك.",
-    },
-    {
-      q: "واش خزانتي موقع بيع؟",
-      a: "لا، خزانتي ماهيش موقع بيع. احنا نركزو على مساعدتك باش تستخدم الملابس إلي عندك بطريقة أحسن. في المستقبل، نخططو باش نتعاونو مع محلات تونسية باش نقترحو قطع تكمّل ملابسك الموجودة - فقط كيف يكون ضروري حقيقة ويناسب ستايلك.",
-    },
-    {
-      q: "التطبيق مجاني؟",
-      a: "أيه، التطبيق الأساسي راح يكون مجاني تماماً. في المستقبل، راح نوفرو ميزات إضافية للناس إلي يحبو يستثمرو أكثر في تنظيم خزانتهم.",
-    },
-    {
-      q: "كيفاش التطبيق يحمي معلوماتي؟",
-      a: "خصوصيتك مهمة برشة عندنا. صور ملابسك يتخزنو بطريقة آمنة، وماعمرنا نشاركو معلوماتك الشخصية مع أي جهة أخرى. البيانات متاعك تبقى ملك إلك فقط.",
-    },
-    {
-      q: "وقتاش راح يتلانسى التطبيق؟",
-      a: "نخططو نلانسيو النسخة التجريبية في مارس 2026. إنضم للقائمة متاع الإنتظار باش تكون من الأوائل إلي يجربو التطبيق ويعطيونا رأيهم.",
-    },
-  ];
-
   return (
     <div
       className={`min-h-screen transition-colors duration-700 ${darkMode ? "bg-gray-900" : "bg-gradient-to-b from-amber-50 via-white to-blue-50"}`}
@@ -97,29 +72,11 @@ export default function KhzantiLanding() {
       </div>
 
       {/* Nav */}
-      <nav className="relative z-50 px-6 md:px-12">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <motion.button
-            onClick={() => setDarkMode(!darkMode)}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className={`p-3 rounded-xl transition-all duration-300 ${darkMode ? "bg-gray-800 text-amber-400" : "bg-white text-amber-600 shadow-md"}`}
-          >
-            {darkMode ? (
-              <Sun className="w-5 h-5" />
-            ) : (
-              <Moon className="w-5 h-5" />
-            )}
-          </motion.button>
-          <div className="flex items-center gap-3">
-            <img
-              src={darkMode ? "/logo_dark.png" : "/logo.png"}
-              alt="خزانتي Logo"
-              className="w-40 h-40 object-contain"
-            />
-          </div>
-        </div>
-      </nav>
+      <NavComponent
+        darkMode={darkMode}
+        motion={motion}
+        setDarkMode={setDarkMode}
+      />
 
       {/* Hero */}
       <motion.section
