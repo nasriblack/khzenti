@@ -1,14 +1,6 @@
 import { useState, useRef } from "react";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
-import {
-  Sparkles,
-  Heart,
-  ArrowRight,
-  Check,
-  ChevronDown,
-  Sun,
-  Moon,
-} from "lucide-react";
+import { Sparkles, Heart, ArrowRight, Check, ChevronDown } from "lucide-react";
 import { faqs } from "../data";
 import NavComponent from "../components/NavComponent";
 
