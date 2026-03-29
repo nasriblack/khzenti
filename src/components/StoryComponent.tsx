@@ -56,7 +56,13 @@ export default function StoryComponent({ darkMode }: Props) {
             className={`mt-8 pt-6 border-t ${darkMode ? "border-gray-700" : "border-gray-200"}`}
           >
             <div className="flex items-center gap-4">
-              <div className="w-14 h-14 bg-gradient-to-br from-amber-400 to-rose-400 rounded-full" />
+              <div className="w-14 h-14 bg-gradient-to-br from-amber-400 to-rose-400 rounded-full">
+                <img
+                  src="pic_profil.png"
+                  alt="Lakhak Nasereddine"
+                  className="object-contain rounded-3xl"
+                />
+              </div>
               <div>
                 <p
                   className={`font-bold text-lg ${darkMode ? "text-white" : "text-gray-900"}`}
