@@ -34,11 +34,6 @@ export default function CtaComponent({ darkMode, motion }: Props) {
             <Sparkles className="w-6 h-6" />
             إنضم للقائمة
           </motion.button>
-          <p
-            className={`text-sm mt-6 ${darkMode ? "text-gray-500" : "text-gray-500"}`}
-          >
-            الإطلاق في مارس 2026
-          </p>
         </FadeIn>
       </div>
     </section>

@@ -61,7 +61,7 @@ export default function StoryComponent({ darkMode }: Props) {
                 <p
                   className={`font-bold text-lg ${darkMode ? "text-white" : "text-gray-900"}`}
                 >
-                  أحمد بن سالم
+                  نصرالدين الأكحل
                 </p>
                 <p className={darkMode ? "text-gray-400" : "text-gray-600"}>
                   مؤسس ومدير تنفيذي
