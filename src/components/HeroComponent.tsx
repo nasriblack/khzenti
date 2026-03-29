@@ -99,11 +99,6 @@ function HeroComponent({
               <Check className="w-5 h-5 text-green-600" />
             </motion.div>
           )}
-          <p
-            className={`mt-3 text-sm ${darkMode ? "text-gray-400" : "text-gray-500"}`}
-          >
-            إنضم لأكثر من 500 مرأة تونسية
-          </p>
         </motion.div>
       </div>
     </motion.section>
