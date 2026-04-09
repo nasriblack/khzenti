@@ -9,6 +9,7 @@ import FaqSection from "../components/FaqSection";
 import { FooterComponent } from "../components/FooterComponent";
 import CtaComponent from "../components/CtaComponent";
 import LandingWrapper from "../components/LandingWrapper";
+import { addEmail } from "../services/api";
 
 export const FadeIn = ({
   children,
@@ -40,17 +41,29 @@ export default function KhzantiLanding() {
   const [submitted, setSubmitted] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [darkMode, setDarkMode] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const { scrollYProgress } = useScroll();
   const heroOpacity = useTransform(scrollYProgress, [0, 0.3], [1, 0.8]);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Email:", email);
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      setEmail("");
-    }, 3000);
+    setIsLoading(true);
+
+    const response = await addEmail(email);
+
+    if (
+      response.then((data: any) => {
+        setIsLoading(false);
+        if (data?.success) {
+          setSubmitted(true);
+        }
+      })
+    )
+      setTimeout(() => {
+        setIsLoading(false);
+        setSubmitted(false);
+        setEmail("");
+      }, 3000);
   };
 
   // Optimized animation component
@@ -73,6 +86,7 @@ export default function KhzantiLanding() {
         motion={motion}
         setEmail={setEmail}
         submitted={submitted}
+        isLoading={isLoading}
       />
 
       {/* Story */}
