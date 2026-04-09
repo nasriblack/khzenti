@@ -1,4 +1,5 @@
-import { ArrowRight, Check, Sparkles } from "lucide-react";
+import { Check, Sparkles } from "lucide-react";
+import { AnimatePresence } from "framer-motion";
 
 type Props = {
   motion: any;
@@ -8,6 +9,7 @@ type Props = {
   handleSubmit: (e: any) => void;
   email: string;
   setEmail: (email: string) => void;
+  isLoading: boolean;
 };
 
 function HeroComponent({
@@ -18,6 +20,7 @@ function HeroComponent({
   handleSubmit,
   email,
   setEmail,
+  isLoading,
 }: Props) {
   return (
     <motion.section
@@ -73,9 +76,59 @@ function HeroComponent({
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 type="submit"
-                className="px-8 py-4 bg-gradient-to-l from-amber-600 to-rose-600 text-white font-bold rounded-2xl shadow-lg"
+                disabled={isLoading}
+                className="px-8 py-4 bg-gradient-to-l from-amber-600 to-rose-600 text-white font-bold rounded-2xl shadow-lg inline-flex items-center"
               >
-                <ArrowRight className="w-5 h-5 rotate-180 inline ml-2" />
+                <AnimatePresence mode="wait" initial={false}>
+                  {isLoading ? (
+                    <motion.svg
+                      key="spinner"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      className="ml-2"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1, rotate: 360 }}
+                      exit={{ opacity: 0 }}
+                      transition={{
+                        opacity: { duration: 0.2 },
+                        rotate: {
+                          duration: 0.8,
+                          repeat: Infinity,
+                          ease: "linear",
+                        },
+                      }}
+                    >
+                      <path d="M21 12a9 9 0 1 1-6.219-8.56" />
+                    </motion.svg>
+                  ) : (
+                    <motion.svg
+                      key="arrow"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="rotate-180 ml-2"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <path d="M5 12h14" />
+                      <path d="m12 5 7 7-7 7" />
+                    </motion.svg>
+                  )}
+                </AnimatePresence>
                 إنضم للقائمة
               </motion.button>
               <input
