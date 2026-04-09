@@ -42,6 +42,7 @@ export default function KhzantiLanding() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [darkMode, setDarkMode] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
   const { scrollYProgress } = useScroll();
   const heroOpacity = useTransform(scrollYProgress, [0, 0.3], [1, 0.8]);
 
@@ -49,21 +50,22 @@ export default function KhzantiLanding() {
     e.preventDefault();
     setIsLoading(true);
 
-    const response = await addEmail(email);
+    const data = await addEmail(email);
 
-    if (
-      response.then((data: any) => {
-        setIsLoading(false);
-        if (data?.success) {
-          setSubmitted(true);
-        }
-      })
-    )
-      setTimeout(() => {
-        setIsLoading(false);
-        setSubmitted(false);
-        setEmail("");
-      }, 3000);
+    console.log("checking the data", data);
+
+    setIsLoading(false);
+
+    if (data?.success) {
+      setSubmitted(true);
+      setEmail("");
+      setIsError(false);
+
+      setTimeout(() => setSubmitted(false), 3000);
+    } else {
+      setIsError(true);
+      setTimeout(() => setIsError(false), 3000);
+    }
   };
 
   // Optimized animation component
@@ -87,6 +89,7 @@ export default function KhzantiLanding() {
         setEmail={setEmail}
         submitted={submitted}
         isLoading={isLoading}
+        isError={isError}
       />
 
       {/* Story */}

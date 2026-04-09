@@ -10,7 +10,13 @@ const endPoint = {
 };
 
 export const addEmail = async (email: string): Promise<any> => {
-  const { data } = await api.post(endPoint.ADD_WHITELIST, { email: email });
-  console.log("checking the data", data);
-  return data;
+  try {
+    const { data } = await api.post(endPoint.ADD_WHITELIST, { email });
+    return data;
+  } catch (error: any) {
+    // Axios puts the backend response in error.response
+    const status = error?.response?.status;
+    const message = error?.response?.data?.message || "حدث خطأ، حاول مجدداً";
+    return { success: false, message, status };
+  }
 };
