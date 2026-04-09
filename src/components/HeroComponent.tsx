@@ -94,7 +94,7 @@ function HeroComponent({
               className="flex items-center justify-center gap-2 px-6 py-4 bg-green-50 border-2 border-green-200 rounded-2xl"
             >
               <span className="text-green-700 font-bold">
-                🎉 مرحى! راك في القائمة
+                🎉 ثانكس ، تو يوصلك ايميل
               </span>
               <Check className="w-5 h-5 text-green-600" />
             </motion.div>
