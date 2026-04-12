@@ -2,8 +2,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL:
-    "https://khzenti-waitlist-back-6rycmggk0-naserlakhals-projects.vercel.app/",
+  baseURL: "https://khzenti-waitlist-back.vercel.app/",
 });
 
 const endPoint = {
