@@ -1,4 +1,3 @@
-import React from "react";
 import { FadeIn } from "../pages/LandingPage";
 import { faqs } from "../data";
 import { ChevronDown } from "lucide-react";
