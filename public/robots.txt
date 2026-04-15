@@ -1,0 +1,23 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: * 
+# Disallow private pages 
+Disallow: /login 
+Disallow: /home 
+Disallow: /wardrobe 
+Disallow: /generate 
+Disallow: /calendar 
+Disallow: /profile 
+Disallow: /api/ 
+# Allow only landing page for search engines 
+Allow: /$ 
+# Sitemap location 
+Sitemap: https://khzenti.vercel.app/sitemap.xml 
+# Crawl delay (optional - prevents overloading server) 
+Crawl-delay: 1 
+# Popular search engines 
+User-agent: Googlebot 
+Allow: / 
+User-agent: Bingbot 
+Allow: / 
+User-agent: Slurp 
+Allow: /
