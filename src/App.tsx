@@ -34,24 +34,22 @@ export default function KhzantiApp() {
     );
   }
 
+  const pages: any = {
+    home: <HomePage onAddClothes={() => setShowAddWizard(true)} />,
+    wardrobe: <WardrobePage onAddClothes={() => setShowAddWizard(true)} />,
+    generate: <GenerateOutfitPage />,
+    calendar: <CalendarPage />,
+    profile: (
+      <ProfilePage darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+    ),
+  };
+
   return (
     <div
       className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors"
       dir="rtl"
     >
-      <main className="pb-20">
-        {currentPage === "home" && (
-          <HomePage onAddClothes={() => setShowAddWizard(true)} />
-        )}
-        {currentPage === "wardrobe" && (
-          <WardrobePage onAddClothes={() => setShowAddWizard(true)} />
-        )}
-        {currentPage === "generate" && <GenerateOutfitPage />}
-        {currentPage === "calendar" && <CalendarPage />}
-        {currentPage === "profile" && (
-          <ProfilePage darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
-        )}
-      </main>
+      <main className="pb-20">{pages[currentPage]}</main>
 
       <BottomNav currentPage={currentPage} onNavigate={setCurrentPage} />
       <AddClothesWizard
