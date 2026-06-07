@@ -20,9 +20,9 @@ export default function ProfilePage({
           <User className="w-12 h-12 text-white" />
         </div>
         <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
-          أمينة بن علي
+          Test
         </h2>
-        <p className="text-gray-600 dark:text-gray-400">amina@example.com</p>
+        <p className="text-gray-600 dark:text-gray-400">test@example.com</p>
       </div>
 
       <div className="space-y-3">
