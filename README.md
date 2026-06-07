@@ -7,6 +7,10 @@
 [![Prettier][prettier]][prettier-url]
 
 
+
+## CHAT USED 
+https://claude.ai/chat/8999d150-e562-457b-8e39-4f1ed23d7660
+
 ## state-based navigation (navigation like the mobile with state)
 - the user will lost the state
 - url don't work 
@@ -65,6 +69,7 @@ const pages = {
 
 
 # TODO NEXT 
+- [ ] Implement the structure
 - [ ] Review the exist code / Exist UI
     - [ ]  delete the section of the weather in dashboard (only premium users can see it)
     - [ ]  Add jacket to the dashboard number with the statistique
@@ -80,3 +85,7 @@ const pages = {
 - [ ] Create wardrobe item
 - [ ] Get the wardrobe items
 - [ ] Update the wardrobe items
+- [ ] Implement Husky
+- [ ] Implement Prettier
+- [ ] Implement Storybook
+- [ ] Implement Unit test
