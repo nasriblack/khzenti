@@ -54,9 +54,9 @@ const pages = {
 
 # TODO NEXT 
 - [ ] Review the exist code / Exist UI
-    - [ ]  delete the section of the weather in dashboard
+    - [ ]  delete the section of the weather in dashboard (only premium users can see it)
     - [ ]  Add jacket to the dashboard number with the statistique
-    - [ ]  Update or change the calendar page
+    - [ ]  Update or change the calendar page (Only Premium users can see it )
     
 - [ ] Implement the tanstack query 
 - [ ] Implement the base route
