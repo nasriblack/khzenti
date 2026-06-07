@@ -1,3 +1,12 @@
+# KHZENTI
+[![React][React]][react-url]
+[![React Query][react-query]][rq-url]
+[![Tailwind][Tailwind CSS]][Tailwind-url]
+[![TypeScript][TypeScript]][ts-url]
+[![pnpm][pnpm]][pnpm-url]
+[![Prettier][prettier]][prettier-url]
+
+
 ## state-based navigation (navigation like the mobile with state)
 - the user will lost the state
 - url don't work 
@@ -49,6 +58,9 @@ const pages = {
 <main className="pb-20">
   {pages[currentPage]}
 </main>
+
+## GITHUB REPO TO FOLLOW 
+- https://github.com/COT-WORLD/CHATCAMPUS/tree/main/frontend/src
 
 
 
