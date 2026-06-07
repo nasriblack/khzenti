@@ -7,8 +7,11 @@ import CalendarPage from "./pages/CalendarPage";
 import ProfilePage from "./pages/ProfilePage";
 import BottomNav from "./components/BottomNav";
 import AddClothesWizard from "./components/AddClothesWizard";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 type Page = "login" | "home" | "wardrobe" | "generate" | "calendar" | "profile";
+const queryClient = new QueryClient();
 
 export default function KhzantiApp() {
   const [currentPage, setCurrentPage] = useState<Page>("login");
@@ -45,17 +48,20 @@ export default function KhzantiApp() {
   };
 
   return (
-    <div
-      className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors"
-      dir="rtl"
-    >
-      <main className="pb-20">{pages[currentPage]}</main>
+    <QueryClientProvider client={queryClient}>
+      <div
+        className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors"
+        dir="rtl"
+      >
+        <main className="pb-20">{pages[currentPage]}</main>
 
-      <BottomNav currentPage={currentPage} onNavigate={setCurrentPage} />
-      <AddClothesWizard
-        show={showAddWizard}
-        onClose={() => setShowAddWizard(false)}
-      />
-    </div>
+        <BottomNav currentPage={currentPage} onNavigate={setCurrentPage} />
+        <AddClothesWizard
+          show={showAddWizard}
+          onClose={() => setShowAddWizard(false)}
+        />
+      </div>
+      <ReactQueryDevtools initialIsOpen={false} />
+    </QueryClientProvider>
   );
 }
