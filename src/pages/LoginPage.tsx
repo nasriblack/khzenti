@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Sun, Moon } from "lucide-react";
+import { useLogin } from "../hooks/api_hooks/useUser";
 
 interface LoginPageProps {
   onLogin: () => void;
@@ -16,8 +17,12 @@ export default function LoginPage({
   const [isSignup, setIsSignup] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { mutateAsync } = useLogin();
 
   const handleSubmit = (e: React.FormEvent) => {
+    if (!isSignup) {
+      mutateAsync({ payload: { email, password } });
+    }
     e.preventDefault();
     onLogin();
   };

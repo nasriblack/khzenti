@@ -73,6 +73,7 @@ const pages = {
 
 
 # TODO NEXT 
+- [ ] Refactoring the services/api.ts
 - [ ] Review the exist code / Exist UI
     - [ ]  delete the section of the weather in dashboard (only premium users can see it)
     - [ ]  Add jacket to the dashboard number with the statistique
