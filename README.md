@@ -80,6 +80,7 @@ const pages = {
 - [ ] Authentification
     - [ ] SignUp
     - [ ] SignIn
+    - [ ] Logout
 - [ ] Get profil user
 - [ ] Update Profil user
 - [ ] Create wardrobe item
