@@ -68,8 +68,11 @@ const pages = {
 
 
 
-# TODO NEXT 
+# 07-08/06/2026 
 - [ ] Implement the structure
+
+
+# TODO NEXT 
 - [ ] Review the exist code / Exist UI
     - [ ]  delete the section of the weather in dashboard (only premium users can see it)
     - [ ]  Add jacket to the dashboard number with the statistique
