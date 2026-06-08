@@ -37,7 +37,7 @@ export default function KhzantiApp() {
     );
   }
 
-  const pages: any = {
+  const pages: Partial<Record<Page, React.JSX.Element>> = {
     home: <HomePage onAddClothes={() => setShowAddWizard(true)} />,
     wardrobe: <WardrobePage onAddClothes={() => setShowAddWizard(true)} />,
     generate: <GenerateOutfitPage />,
