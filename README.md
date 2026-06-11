@@ -68,8 +68,13 @@ const pages = {
 
 
 
-# 07-08/06/2026 
+# 07-08-11/06/2026 
 - [ ] Implement the structure
+- [ ] Authentification
+    - [ ] SignUp
+    - [ ] SignIn
+    - [ ] Logout
+    - [ ] Found a bug ! the login is not inside the reactQuery 
 
 
 # TODO NEXT 
@@ -81,10 +86,6 @@ const pages = {
     
 - [ ] Implement the tanstack query 
 - [ ] Implement the base route
-- [ ] Authentification
-    - [ ] SignUp
-    - [ ] SignIn
-    - [ ] Logout
 - [ ] Get profil user
 - [ ] Update Profil user
 - [ ] Create wardrobe item

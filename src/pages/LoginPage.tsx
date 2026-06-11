@@ -17,14 +17,16 @@ export default function LoginPage({
   const [isSignup, setIsSignup] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { mutateAsync } = useLogin();
+  const { mutateAsync, isSuccess, data } = useLogin();
 
   const handleSubmit = (e: React.FormEvent) => {
     if (!isSignup) {
       mutateAsync({ payload: { email, password } });
+      console.log("checking the data", data);
     }
+
     e.preventDefault();
-    onLogin();
+    if (isSuccess && data.success) onLogin();
   };
 
   return (
