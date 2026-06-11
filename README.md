@@ -92,5 +92,6 @@ const pages = {
 - [ ] Update the wardrobe items
 - [ ] Implement Husky
 - [ ] Implement Prettier
+- [ ] Implement oxlint
 - [ ] Implement Storybook
 - [ ] Implement Unit test
