@@ -72,9 +72,11 @@ const pages = {
 - [ ] Implement the structure
 - [ ] Authentification
     - [ ] SignUp
-    - [ ] SignIn
+    - [ ] SignIn 
+      - [X] in case of invalid user it will be a msg
+      - [ ] in case of valid user
     - [ ] Logout
-    - [ ] Found a bug ! the login is not inside the reactQuery 
+    - [X] Found a bug ! the login is not inside the reactQuery 
 
 
 # TODO NEXT 

@@ -17,16 +17,22 @@ export default function LoginPage({
   const [isSignup, setIsSignup] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { mutateAsync, isSuccess, data } = useLogin();
-
-  const handleSubmit = (e: React.FormEvent) => {
-    if (!isSignup) {
-      mutateAsync({ payload: { email, password } });
-      console.log("checking the data", data);
-    }
-
+  const { mutateAsync, isSuccess, isError } = useLogin();
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (isSuccess && data.success) onLogin();
+
+    try {
+      const response = await mutateAsync({
+        payload: { email, password },
+      });
+
+      if (response.success && isSuccess) {
+        onLogin();
+        return;
+      }
+    } catch (err: any) {
+      console.error(err);
+    }
   };
 
   return (
@@ -96,6 +102,16 @@ export default function LoginPage({
                 required
               />
             </div>
+
+            {isError && (
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-700 dark:bg-red-900/20 dark:border-red-800 dark:text-red-300"
+              >
+                البريد الإلكتروني أو كلمة السر غير صحيحة
+              </motion.div>
+            )}
 
             <motion.button
               whileHover={{ scale: 1.02 }}
