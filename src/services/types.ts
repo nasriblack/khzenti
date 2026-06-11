@@ -1,4 +1,4 @@
-export type Payload = {
+export type PayloadUserLogin = {
   email: string;
   password: string;
 };

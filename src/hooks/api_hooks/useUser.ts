@@ -1,6 +1,7 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 // import type { UpdateUserPayload } from '../types/user.types';
 import { UserService } from "../../services/user.service";
+import type { PayloadUserLogin } from "../../services/types";
 
 // ── Query keys: centralised, typed ───────────────────────────
 export const userKeys = {
@@ -28,7 +29,8 @@ export const useLogin = () => {
   //   const queryClient = useQueryClient();
 
   return useMutation({
-    mutationFn: ({ payload }: { payload: any }) => UserService.Login(payload),
+    mutationFn: ({ payload }: { payload: PayloadUserLogin }) =>
+      UserService.Login(payload),
 
     onSuccess: () => {
       // update both the list cache and the single-item cache
