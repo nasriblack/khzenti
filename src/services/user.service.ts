@@ -1,14 +1,15 @@
 import { API_AUTH } from "../api/endpoints";
 import { http } from "../api/http";
+import type { Payload, User } from "./types";
 
 export const UserService = {
   //TODO: replace the any by the type of USER
-  Login: async (payload: any): Promise<any[]> => {
-    const { data } = await http.post<any[]>(API_AUTH.LOGIN, payload);
+  Login: async (payload: Payload): Promise<User> => {
+    const { data } = await http.post<User>(API_AUTH.LOGIN, payload);
     return data;
   },
-  Registre: async (payload: any): Promise<any[]> => {
-    const { data } = await http.post<any[]>(API_AUTH.SIGNUP, payload);
+  Registre: async (payload: Payload): Promise<User> => {
+    const { data } = await http.post<User>(API_AUTH.SIGNUP, payload);
     return data;
   },
 
