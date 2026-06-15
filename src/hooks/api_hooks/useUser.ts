@@ -1,4 +1,4 @@
-import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
+import { useMutation } from "@tanstack/react-query";
 // import type { UpdateUserPayload } from '../types/user.types';
 import { UserService } from "../../services/user.service";
 import type { PayloadUserLogin } from "../../services/types";

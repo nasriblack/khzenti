@@ -17,7 +17,7 @@ export default function LoginPage({
   const [isSignup, setIsSignup] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { mutateAsync, isSuccess, isError } = useLogin(onLogin);
+  const { mutateAsync, isError } = useLogin(onLogin);
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
