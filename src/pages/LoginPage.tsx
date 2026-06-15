@@ -17,7 +17,7 @@ export default function LoginPage({
   const [isSignup, setIsSignup] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { mutateAsync, isSuccess, isError } = useLogin();
+  const { mutateAsync, isSuccess, isError } = useLogin(onLogin);
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -26,10 +26,12 @@ export default function LoginPage({
         payload: { email, password },
       });
 
-      if (response.success && isSuccess) {
-        onLogin();
-        return;
-      }
+      console.log("checking the response", response);
+
+      // if (response.success && isSuccess) {
+      //   onLogin();
+      //   return;
+      // }
     } catch (err: any) {
       console.error(err);
     }

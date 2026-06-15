@@ -25,17 +25,15 @@ export const userKeys = {
 //   });
 
 // ── Mutations ─────────────────────────────────────────────────
-export const useLogin = () => {
-  //   const queryClient = useQueryClient();
-
+export const useLogin = (onLogin: () => void) => {
   return useMutation({
     mutationFn: ({ payload }: { payload: PayloadUserLogin }) =>
       UserService.Login(payload),
 
-    onSuccess: () => {
-      // update both the list cache and the single-item cache
-      //   queryClient.invalidateQueries({ queryKey: userKeys.all });
-      //   queryClient.setQueryData(userKeys.byId(updatedUser.id), updatedUser);
+    onSuccess: (response) => {
+      const token = response.data.accessToken;
+      localStorage.setItem("accessToken", token);
+      onLogin();
     },
 
     onError: (error) => {

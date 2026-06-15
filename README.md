@@ -80,6 +80,8 @@ const pages = {
 
 
 # TODO NEXT 
+- [ ] The user will make more then one authentification => he will not be able 
+- [ ] Add the token in the cookies or localStorage , then check in the login part if the token is their or not 
 - [ ] Refactoring the services/api.ts
 - [ ] Review the exist code / Exist UI
     - [ ]  delete the section of the weather in dashboard (only premium users can see it)

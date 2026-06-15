@@ -8,39 +8,52 @@ import ProfilePage from "./pages/ProfilePage";
 import BottomNav from "./components/BottomNav";
 import AddClothesWizard from "./components/AddClothesWizard";
 
-type Page = "login" | "home" | "wardrobe" | "generate" | "calendar" | "profile";
+type Page = "home" | "wardrobe" | "generate" | "calendar" | "profile";
 
 export default function KhzantiApp() {
-  const [currentPage, setCurrentPage] = useState<Page>("login");
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(
+    () => !!localStorage.getItem("accessToken"),
+  );
+  const [currentPage, setCurrentPage] = useState<Page>("home");
   const [showAddWizard, setShowAddWizard] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
 
   const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
+    setDarkMode((prev) => !prev);
     document.documentElement.classList.toggle("dark");
+  };
+
+  const handleLogin = () => {
+    setIsLoggedIn(true);
+    setCurrentPage("home");
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("accessToken");
+    setIsLoggedIn(false);
   };
 
   if (!isLoggedIn) {
     return (
       <LoginPage
-        onLogin={() => {
-          setIsLoggedIn(true);
-          setCurrentPage("home");
-        }}
+        onLogin={handleLogin}
         darkMode={darkMode}
         toggleDarkMode={toggleDarkMode}
       />
     );
   }
 
-  const pages: Partial<Record<Page, React.JSX.Element>> = {
+  const pages: Record<Page, React.JSX.Element> = {
     home: <HomePage onAddClothes={() => setShowAddWizard(true)} />,
     wardrobe: <WardrobePage onAddClothes={() => setShowAddWizard(true)} />,
     generate: <GenerateOutfitPage />,
     calendar: <CalendarPage />,
     profile: (
-      <ProfilePage darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+      <ProfilePage
+        darkMode={darkMode}
+        toggleDarkMode={toggleDarkMode}
+        onLogout={handleLogout}
+      />
     ),
   };
 
@@ -50,7 +63,6 @@ export default function KhzantiApp() {
       dir="rtl"
     >
       <main className="pb-20">{pages[currentPage]}</main>
-
       <BottomNav currentPage={currentPage} onNavigate={setCurrentPage} />
       <AddClothesWizard
         show={showAddWizard}

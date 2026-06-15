@@ -3,6 +3,7 @@ import { Sun, Moon, User, ChevronLeft } from "lucide-react";
 interface ProfilePageProps {
   darkMode: boolean;
   toggleDarkMode: () => void;
+  onLogout: () => void;
 }
 
 export default function ProfilePage({

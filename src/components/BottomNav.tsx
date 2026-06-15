@@ -6,7 +6,7 @@ import {
   User,
 } from "lucide-react";
 
-type Page = "login" | "home" | "wardrobe" | "generate" | "calendar" | "profile";
+type Page = "home" | "wardrobe" | "generate" | "calendar" | "profile";
 
 interface BottomNavProps {
   currentPage: Page;
