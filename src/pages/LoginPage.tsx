@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Sun, Moon } from "lucide-react";
-import { useLogin } from "../hooks/api_hooks/useUser";
+import { useLogin, useRegistre } from "../hooks/api_hooks/useUser";
 
 interface LoginPageProps {
   onLogin: () => void;
@@ -18,22 +18,27 @@ export default function LoginPage({
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { mutateAsync, isError } = useLogin(onLogin);
+  const { mutateAsync: registerMutation, isError: isErrorRegister } =
+    useRegistre(onLogin);
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    try {
-      const response = await mutateAsync({
-        payload: { email, password },
-      });
-
-      console.log("checking the response", response);
-
-      // if (response.success && isSuccess) {
-      //   onLogin();
-      //   return;
-      // }
-    } catch (err: any) {
-      console.error(err);
+    if (!isSignup) {
+      try {
+        await mutateAsync({
+          payload: { email, password },
+        });
+      } catch (err: any) {
+        console.error(err);
+      }
+    } else {
+      try {
+        await registerMutation({
+          payload: { email, password },
+        });
+      } catch (err: any) {
+        console.error(err);
+      }
     }
   };
 
@@ -105,7 +110,16 @@ export default function LoginPage({
               />
             </div>
 
-            {isError && (
+            {!isSignup && isError && (
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-700 dark:bg-red-900/20 dark:border-red-800 dark:text-red-300"
+              >
+                البريد الإلكتروني أو كلمة السر غير صحيحة
+              </motion.div>
+            )}
+            {isSignup && isErrorRegister && (
               <motion.div
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}

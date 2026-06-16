@@ -74,6 +74,7 @@ const pages = {
     - [ ] SignUp
       - [ ] Test the error msg ( validation msg )
       - [ ] true credentials
+      - [ ] Test if there is any regression on login feature
     - [X] SignIn 
       - [X] in case of invalid user it will be a msg
       - [X] in case of valid user

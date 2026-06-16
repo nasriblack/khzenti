@@ -16,3 +16,10 @@ export type User = {
     accessToken: string;
   };
 };
+
+export type RegisterError = {
+  success: boolean;
+  error: string[];
+};
+
+export type RegisterResponse = User & RegisterError;
