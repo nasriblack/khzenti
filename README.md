@@ -70,7 +70,7 @@ const pages = {
 
 # 07-08-11-15-16/06/2026 
 - [X] Implement the structure
-- [ ] Authentification
+- [X] Authentification
     - [ ] SignUp
       - [X] Test the error msg ( validation msg )
       - [X] true credentials
@@ -81,12 +81,12 @@ const pages = {
       - [X] in case of valid user
     - [ ] Logout (front)
     - [X] Found a bug ! the login is not inside the reactQuery 
+- [X] Refactoring the services/api.ts
 
 
 # TODO NEXT 
 - [ ] The user will make more then one authentification => he will not be able 
 - [ ] Add the token in the cookies or localStorage , then check in the login part if the token is their or not 
-- [ ] Refactoring the services/api.ts
 - [ ] Review the exist code / Exist UI
     - [ ]  delete the section of the weather in dashboard (only premium users can see it)
     - [ ]  Add jacket to the dashboard number with the statistique

@@ -9,7 +9,7 @@ import FaqSection from "../components/FaqSection";
 import { FooterComponent } from "../components/FooterComponent";
 import CtaComponent from "../components/CtaComponent";
 import LandingWrapper from "../components/LandingWrapper";
-import { addEmail } from "../services/api";
+import { useAddToWaitList } from "../hooks/api_hooks/useUser";
 
 export const FadeIn = ({
   children,
@@ -41,30 +41,21 @@ export default function KhzantiLanding() {
   const [submitted, setSubmitted] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [darkMode, setDarkMode] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
-  const [isError, setIsError] = useState(false);
   const { scrollYProgress } = useScroll();
   const heroOpacity = useTransform(scrollYProgress, [0, 0.3], [1, 0.8]);
 
+  const { mutateAsync, isPending, isSuccess, isError } = useAddToWaitList();
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsLoading(true);
 
-    const data = await addEmail(email);
+    mutateAsync({ payload: { email } });
 
-    console.log("checking the data", data);
-
-    setIsLoading(false);
-
-    if (data?.success) {
+    if (isSuccess) {
       setSubmitted(true);
       setEmail("");
-      setIsError(false);
 
       setTimeout(() => setSubmitted(false), 3000);
-    } else {
-      setIsError(true);
-      setTimeout(() => setIsError(false), 3000);
     }
   };
 
@@ -88,7 +79,7 @@ export default function KhzantiLanding() {
         motion={motion}
         setEmail={setEmail}
         submitted={submitted}
-        isLoading={isLoading}
+        isLoading={isPending}
         isError={isError}
       />
 

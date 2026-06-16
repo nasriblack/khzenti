@@ -62,3 +62,18 @@ export const useRegistre = (onLogin: () => void) => {
     },
   });
 };
+
+export const useAddToWaitList = () => {
+  //   const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: ({ payload }: { payload: { email: string } }) =>
+      UserService.WaitListResigter(payload),
+
+    onSuccess: () => {},
+
+    onError: (error) => {
+      console.error("Registre user failed:", error);
+    },
+  });
+};

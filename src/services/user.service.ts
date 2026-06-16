@@ -15,6 +15,10 @@ export const UserService = {
     );
     return data;
   },
+  WaitListResigter: async (payload: { email: string }): Promise<any> => {
+    const { data } = await http.post<any>(API_AUTH.ADD_WHITELIST, payload);
+    return data;
+  },
 
   //   getById: async (id: string): Promise<User> => {
   //     const { data } = await http.get<User>(USER_ENDPOINTS.BY_ID(id));
