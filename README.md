@@ -69,6 +69,7 @@ const pages = {
 
 
 # 07-08-11-15-16/06/2026 
+- [X] Implement the tanstack query 
 - [X] Implement the structure
 - [X] Authentification
     - [ ] SignUp
@@ -92,7 +93,6 @@ const pages = {
     - [ ]  Add jacket to the dashboard number with the statistique
     - [ ]  Update or change the calendar page (Only Premium users can see it )
     
-- [ ] Implement the tanstack query 
 - [ ] Implement the base route
 - [ ] Get profil user
 - [ ] Update Profil user
