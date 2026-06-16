@@ -104,7 +104,9 @@ export default function LoginPage({
           setFieldErrors(parseServerErrors(serverData.error));
         } else {
           // Unexpected error (network, 500, etc.)
-          setGeneralError("حدث خطأ غير متوقع، يرجى المحاولة مجدداً");
+          setGeneralError(
+            serverData.error ?? "حدث خطأ غير متوقع، يرجى المحاولة مجدداً",
+          );
         }
       }
     }
