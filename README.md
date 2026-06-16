@@ -75,7 +75,7 @@ const pages = {
       - [X] Test the error msg ( validation msg )
       - [X] true credentials
       - [X] Test if there is any regression on login feature
-      - [ ] Display a msg incase of the same email
+      - [X] Display a msg incase of the same email
     - [X] SignIn 
       - [X] in case of invalid user it will be a msg
       - [X] in case of valid user
