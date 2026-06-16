@@ -38,7 +38,6 @@ export const FadeIn = ({
 
 export default function KhzantiLanding() {
   const [email, setEmail] = useState("");
-  const [submitted, setSubmitted] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [darkMode, setDarkMode] = useState(false);
   const { scrollYProgress } = useScroll();
@@ -50,13 +49,6 @@ export default function KhzantiLanding() {
     e.preventDefault();
 
     mutateAsync({ payload: { email } });
-
-    if (isSuccess) {
-      setSubmitted(true);
-      setEmail("");
-
-      setTimeout(() => setSubmitted(false), 3000);
-    }
   };
 
   // Optimized animation component
@@ -78,7 +70,7 @@ export default function KhzantiLanding() {
         heroOpacity={heroOpacity}
         motion={motion}
         setEmail={setEmail}
-        submitted={submitted}
+        submitted={isSuccess}
         isLoading={isPending}
         isError={isError}
       />
