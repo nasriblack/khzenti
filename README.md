@@ -68,14 +68,16 @@ const pages = {
 
 
 
-# 07-08-11/06/2026 
-- [ ] Implement the structure
+# 07-08-11-15-16/06/2026 
+- [X] Implement the structure
 - [ ] Authentification
     - [ ] SignUp
-    - [ ] SignIn 
+      - [ ] Test the error msg ( validation msg )
+      - [ ] true credentials
+    - [X] SignIn 
       - [X] in case of invalid user it will be a msg
-      - [ ] in case of valid user
-    - [ ] Logout
+      - [X] in case of valid user
+    - [ ] Logout (front)
     - [X] Found a bug ! the login is not inside the reactQuery 
 
 
